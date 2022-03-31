@@ -59,7 +59,7 @@ class HorizontalCarouselRecyclerView(context: Context, attrs : AttributeSet) : R
 //                    })
 
                     addOnScrollListener(object : OnScrollListener() {
-                        var c1 = false
+
                         var c2 = false
                         override fun onScrollStateChanged(
                             recyclerView: RecyclerView,
@@ -67,11 +67,8 @@ class HorizontalCarouselRecyclerView(context: Context, attrs : AttributeSet) : R
                         ) {
                             super.onScrollStateChanged(recyclerView, newState)
                             if(newState==0)
-                                Log.e("Scroll>>","${c1}/ ${c2}")
-                            c1 = true
+                                (context as SelectItemInterface).stateSelected(c2)
                             c2 = false
-
-                            (context as SelectItemInterface).stateSelected(newState)
                         }
 
                         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

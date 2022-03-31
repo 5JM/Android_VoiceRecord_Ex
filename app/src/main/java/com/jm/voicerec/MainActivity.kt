@@ -111,13 +111,10 @@ class MainActivity : AnimateBaseActivity(TransitionMode.HORIZON), SelectItemInte
         return items
     }
 
-    override fun stateSelected(state : Int) {
-        //todo 끝에서 혹은 제자리 스크롤 시에도 해당 이벤트 발생
-        //todo <마이크 버튼>
-        Log.e("Adapter>>","$state")
+    override fun stateSelected(state : Boolean) {
+        if (state)
+            selected.postValue(false)
 
-
-        selected.postValue(false)
 //        if(recordButton.isChecked) recordButton.isChecked= false
 
 //        if (state == 0) recordButton.visibility = View.VISIBLE
